@@ -8,7 +8,7 @@
 		var timestamp = new Date().getTime(),
 			upvote_url = 'http://www.behance.net/c?a=a&e=project&s=1&use_jquery=1&count=1&stamp=' + timestamp + '&id=' + id,
 			project_iframe = "<iframe id='project_page_" + id + "' src='http://behance.net/gallery/The-Name-Doesnt-Matter/" + id + "' style='display: none'></iframe>",
-			upvote_iframe = "<iframe src='" + upvote_url + "' style='display: none###></iframe>";
+			upvote_iframe = "<iframe src='" + upvote_url + "' style='display: none'></iframe>";
 
 		// Style
 		this.css( "background-image", "url(http://assets.behance.net/img/site/elements.png?cb=903413478)" );
