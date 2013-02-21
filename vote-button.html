@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Behance Vote Button</title>
+    <style type="text/css">
+        #vote_button {
+            background-image: url(http://assets.behance.net/img/site/elements.png?cb=903413478);
+            cursor: pointer;
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-position: -0 -325px;
+            text-indent: -9999px;
+            font-size: 0;
+            line-height: 0;
+        }
+        iframe {
+            /*display: none;*/
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript">
+        function getURLParameter(name) {
+            return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+        }
+
+        function thank_you() {
+            $('body').append('<h4>Thank you!</h4>');
+        }
+
+        var id = getURLParameter('id');
+        var timestamp = new Date().getTime();
+        var behanceUrl = "http://www.behance.net/c?a=a&e=project&s=1&use_jquery=1&count=1&stamp=" + timestamp + "&id=" + id;
+        
+        $(function() {
+            var iframe = $('body').append('<iframe id="project_page" src="http://behance.net/gallery/The-Name-Doesnt-Matter/' + id + '"></iframe>');
+            $('#vote_button').click(function() {
+                $(this).append('<iframe src="' + behanceUrl + '" onload="thank_you()"></iframe>');
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <div id="vote_button"></div>
+    <!-- <iframe id="project_page" width="800" height="600" src="http://behance.net/gallery/The-Name-Doesnt-Matter/7260955"></iframe> -->
+</body>
+</html>
