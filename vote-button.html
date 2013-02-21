@@ -14,36 +14,33 @@
             line-height: 0;
         }
         iframe {
-            /*display: none;*/
-            width: 800px;
-            height: 600px;
+            display: none;
         }
     </style>
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script type="text/javascript">
-        function getURLParameter(name) {
-            return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
-        }
-
-        function thank_you() {
-            $('body').append('<h4>Thank you!</h4>');
-        }
-
-        var id = getURLParameter('id');
-        var timestamp = new Date().getTime();
-        var behanceUrl = "http://www.behance.net/c?a=a&e=project&s=1&use_jquery=1&count=1&stamp=" + timestamp + "&id=" + id;
-        
-        $(function() {
-            var iframe = $('body').append('<iframe id="project_page" src="http://behance.net/gallery/The-Name-Doesnt-Matter/' + id + '"></iframe>');
-            $('#vote_button').click(function() {
-                $(this).append('<iframe src="' + behanceUrl + '" onload="thank_you()"></iframe>');
-            })
-        })
-
-    </script>
 </head>
 <body>
     <div id="vote_button"></div>
-    <!-- <iframe id="project_page" width="800" height="600" src="http://behance.net/gallery/The-Name-Doesnt-Matter/7260955"></iframe> -->
 </body>
+<script type="text/javascript">
+    function getURLParameter(name) {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+    }
+
+    var id = getURLParameter('id');
+    var timestamp = new Date().getTime();
+    var behanceUrl = "http://www.behance.net/c?a=a&e=project&s=1&use_jquery=1&count=1&stamp=" + timestamp + "&id=" + id;
+    
+    $(function() {
+        var iframe = $('body').append('<iframe id="project_page" src="http://behance.net/gallery/The-Name-Doesnt-Matter/' + id + '"></iframe>');
+        $('#vote_button').click(function() {
+            $(this).append('<iframe src="' + behanceUrl + '" onload="thank_you()"></iframe>');
+            $(this).css('background-position', '-300px -325px');
+        })
+        setTimeout(function() {
+            $('#project_page').remove();
+        }, 2000); // two seconds should be enough for the first response in which the cookies are set
+    })
+
+</script>
 </html>
