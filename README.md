@@ -1,5 +1,7 @@
 ## Embeddable Appreciate Button for Behance
 
+![Cover image - Behance button](http://i.imgur.com/CsYQ6G7.png)
+
 Behance doesn't have an embeddable "like" button, unlike Facebook or Twitter. So, I made one.
 
 Try appreciating this project from the demo page [here](http://whoeverest.github.com/behance/behance-button-demo.html).
