@@ -11,7 +11,7 @@
             upvote_iframe = "<iframe src='" + upvote_url + "' style='display: none'></iframe>";
 
         // Style
-        this.css( "background-image", "url(http://assets.behance.net/img/site/elements.png?cb=903413478)" );
+        this.css( "background-image", "url(http://a2.behance.net/img/sprites/project-icons.png?cb=183993522)" );
         this.css( "cursor", "pointer" );
         this.css( "display", "block" );
         this.css( "width", "100px" );
