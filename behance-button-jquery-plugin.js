@@ -16,7 +16,7 @@
         this.css( "display", "block" );
         this.css( "width", "100px" );
         this.css( "height", "100px" );
-        this.css( "background-position", "-0 -325px" );
+        this.css( "background-position", "0px -300px" );
         this.css( "text-indent", "-9999px" );
         this.css( "font-size", "0" );
         this.css( "line-height", "0" );
@@ -24,16 +24,33 @@
         // Load the project page in a hidden iframe to get the cookies.
         this.append( project_iframe );
 
+        // Add class to check click or not
+        this.attr('data-state','unclick');
+
         // remove the project page iframe after 2 seconds, we only needed the cookies
         setTimeout(function() {
             $( "#project_page_" + id ).remove();
         }, 2000);
 
+        // On hover
+        
+        this.hover(function() {
+            if($(this).attr('data-state') === 'unclick'){
+                $( this ).css( "background-position", "-102px -300px" );
+            }
+        }, function(){
+            if($(this).attr('data-state') === 'unclick'){
+                $( this ).css( "background-position", "0px -300px" );
+            }
+        });
+    
+
         // On click, make a request to up the count and change the button sprite.
         this.click(function() {
             $( this ).append( upvote_iframe );
-            $( this ).css( "background-position", "-300px -325px" );
-        })
+            $( this ).css( "background-position", "-204px -300px" );
+            $(this).attr('data-state','clicked');
+        });
 
         return this;
     }
